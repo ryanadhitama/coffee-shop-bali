@@ -1,0 +1,11 @@
+@layer components {
+  .footer {
+    @apply text-gray-700;
+    &__content {
+      @apply border-t border-dashed border-stone-300 py-6 flex justify-between;
+    }
+    &__github {
+        @apply text-xl;
+    }
+  }
+}

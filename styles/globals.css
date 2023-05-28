@@ -1,5 +1,6 @@
 @import "../components/hero/style.css";
 @import "../components/header/style.css";
+@import "../components/footer/style.css";
 
 @tailwind base;
 @tailwind components;
@@ -20,3 +21,6 @@ html {
   @apply xl:max-w-[980px] lg:max-w-[980px];
 }
 
+.site {
+  @apply min-h-[calc(100vh-149px)];
+}

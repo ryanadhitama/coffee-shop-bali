@@ -10,7 +10,7 @@ const Layout = ({ children }: ILayout) => {
   return (
     <>
       <Header />
-      <Box>{children}</Box>
+      <Box className="site">{children}</Box>
       <Footer />
     </>
   );
