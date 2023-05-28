@@ -1,6 +1,6 @@
 @layer components {
   .hero {
-    @apply bg-stone-200 py-20;
+    @apply bg-stone-200 py-16 sm:py-20;
     &__title {
       @apply mb-1 text-2xl sm:text-3xl font-medium text-gray-950;
     }

@@ -15,3 +15,14 @@ export const usePlaces = () => {
 
   return data;
 };
+
+export const usePlace = (slug: string) => {
+  const fileName = fs.readFileSync(`data/places/${slug}.md`, "utf-8");
+  const { data: frontmatter, content } = matter(fileName);
+  return {
+    props: {
+      frontmatter,
+      content,
+    },
+  };
+};
