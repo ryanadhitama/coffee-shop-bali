@@ -1,0 +1,11 @@
+@layer components {
+  .hero {
+    @apply bg-stone-200 py-20;
+    &__title {
+      @apply mb-1 text-3xl font-medium text-gray-950;
+    }
+    &__desc {
+      @apply text-gray-700;
+    }
+  }
+}
