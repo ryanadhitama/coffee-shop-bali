@@ -1,0 +1,17 @@
+@layer components {
+  .header {
+    @apply py-6;
+    &__title {
+        @apply font-medium text-lg;
+    }
+    &__content {
+        @apply flex justify-between;
+    }
+    &__menu {
+        @apply flex gap-6;
+        a {
+            @apply text-gray-700;
+        }
+    }
+  }
+}
