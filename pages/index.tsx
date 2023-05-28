@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import matter from "gray-matter";
-import fs from "fs";
 import { Box, Hero, Layout, PlaceCard } from "@/components";
+import { usePlaces } from "@/libs/hooks/places";
 
 function Home({ places }: any) {
   return (
@@ -31,16 +30,8 @@ Home.getLayout = function getLayout(page: ReactNode) {
 export default Home;
 
 export async function getStaticProps() {
-  const placeFiles = fs.readdirSync("data/places");
-  const places = placeFiles.map((fileName) => {
-    const slug = fileName.replace(".md", "");
-    const readFile = fs.readFileSync(`data/places/${fileName}`, "utf-8");
-    const { data: frontmatter } = matter(readFile);
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const places = usePlaces();
   return {
     props: {
       places,
