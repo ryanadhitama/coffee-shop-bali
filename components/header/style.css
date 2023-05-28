@@ -8,9 +8,9 @@
         @apply flex justify-between;
     }
     &__menu {
-        @apply flex gap-6;
+        @apply flex gap-4 sm:gap-6;
         a {
-            @apply text-gray-700;
+            @apply text-gray-700 sm:text-base text-sm;
         }
     }
   }

@@ -1,0 +1,15 @@
+@layer components {
+    .place-card {
+        @apply flex items-center gap-6 py-4 px-4 mb-3 border border-dashed border-stone-400 duration-150 cursor-pointer;
+        &:hover {
+            @apply border-black;
+        }
+        &__title {
+            @apply font-semibold text-lg;
+        }
+        &__loc {
+            @apply text-gray-500 font-light text-sm;
+        }
+    }
+  }
+  

@@ -8,8 +8,15 @@ const About = () => {
       <Head>
         <title>About - Coffee Shop Bali</title>
       </Head>
-      <Hero title="About" description="Website under maintenance" />
-      <Box className="container">Data</Box>
+      <Hero title="About" description="Listing coffee shop in Bali" />
+      <Box className="container">
+        <Box className="about__content">
+          <strong className="mb-3 block">Contributor</strong>
+          <ul className="list-disc list-inside text-gray-700">
+            <li>Ryan Adhitama Putra</li>
+          </ul>
+        </Box>
+      </Box>
     </>
   );
 };

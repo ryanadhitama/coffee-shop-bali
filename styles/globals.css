@@ -1,6 +1,10 @@
 @import "../components/hero/style.css";
 @import "../components/header/style.css";
 @import "../components/footer/style.css";
+@import "../components/place-card/style.css";
+
+@import "./pages/about.css";
+@import "./pages/home.css";
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +22,10 @@ html {
 }
 
 .container {
-  @apply xl:max-w-[980px] lg:max-w-[980px];
+  @apply px-5 xl:max-w-[980px] lg:max-w-[980px];
+  @screen md {
+    @apply px-0;
+  }
 }
 
 .site {

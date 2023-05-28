@@ -1,0 +1,7 @@
+@layer components {
+    .about {
+        &__content {
+            @apply py-10;
+        }
+    }
+}
