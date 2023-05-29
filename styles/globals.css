@@ -24,6 +24,7 @@ html {
 html.dark {
   --bg-color: #121212;
   --bg-secondary: #202020;
+  --filter-overlay: grayscale(1);
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
   --border-primary: #444444;
@@ -34,11 +35,11 @@ html {
   @apply duration-500;
   --bg-color: #ffffff;
   --bg-secondary: #e7e5e4;
+  --filter-overlay: grayscale(0);;
   --text-primary: #030712;
   --text-secondary: #6b7280;
   --border-primary: #d6d3d1;
   --border-secondary: #e7e5e4;
-  background-color: var(--bg-color);
 }
 
 .container {

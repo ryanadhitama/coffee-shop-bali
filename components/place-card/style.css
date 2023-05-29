@@ -1,6 +1,6 @@
 @layer components {
   .place-card {
-    @apply flex items-center gap-4 sm:gap-6 mb-3 border duration-150 cursor-pointer;
+    @apply flex items-center gap-4 sm:gap-6 border duration-150 cursor-pointer;
     border-color: var(--border-secondary);
     &:hover {
       border-color: var(--border-primary);
@@ -15,6 +15,7 @@
         @apply sm:w-[150px] sm:h-[150px] h-[100px] w-[100px] relative;
         img {
             @apply object-cover;
+            filter: var(--filter-overlay);
         }
     }
   }
