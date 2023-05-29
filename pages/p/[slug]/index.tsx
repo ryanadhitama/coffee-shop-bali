@@ -63,7 +63,7 @@ export async function getStaticProps(context: any) {
   const fileName = await fs.readFileSync(path, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
-    revalidate: 10,
+    revalidate: false,
     props: {
       frontmatter,
       content,
