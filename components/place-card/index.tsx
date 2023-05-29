@@ -9,15 +9,15 @@ const PlaceCard = ({ data }: any) => {
       <Box className="place-card">
         <Box className="place-card__image">
           <Image
-            src={`/${data?.frontmatter?.image}`}
-            alt={data?.frontmatter?.title}
+            src={`/${data?.image}`}
+            alt={data?.title}
             fill
           />
         </Box>
         <Box>
-          <Box className="place-card__title">{data?.frontmatter?.title}</Box>
+          <Box className="place-card__title">{data?.title}</Box>
           <Box className="place-card__loc">
-            <MdLocationOn /> {data?.frontmatter?.location}
+            <MdLocationOn /> {data?.location}
           </Box>
         </Box>
       </Box>

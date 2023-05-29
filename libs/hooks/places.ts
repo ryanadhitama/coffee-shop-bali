@@ -1,28 +1,13 @@
-import matter from "gray-matter";
-import fs from "fs";
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export const usePlaces = () => {
-  const placeFiles = fs.readdirSync("data/places");
-  const data = placeFiles.map((fileName) => {
-    const slug = fileName.replace(".md", "");
-    const readFile = fs.readFileSync(`data/places/${fileName}`, "utf-8");
-    const { data: frontmatter } = matter(readFile);
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  const baseUrl = "api/places";
+  const { data: res, error } = useSWR(baseUrl, fetcher);
 
-  return data;
-};
-
-export const usePlace = (slug: string) => {
-  const fileName = fs.readFileSync(`data/places/${slug}.md`, "utf-8");
-  const { data: frontmatter, content } = matter(fileName);
   return {
-    props: {
-      frontmatter,
-      content,
-    },
+    loading: !res?.data && error,
+    data: res?.data || [],
   };
 };
