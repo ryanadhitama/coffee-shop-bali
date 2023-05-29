@@ -54,9 +54,8 @@ export async function getStaticProps(context: any) {
   const isExists = fs.existsSync(path);
   if (!isExists) {
     return {
-      redirect: {
-        destination: "/not-found",
-      },
+      revalidate: 10,
+      notFound: true,
     };
   }
   const fileName = fs.readFileSync(path, "utf-8");
