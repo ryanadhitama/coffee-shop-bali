@@ -1,8 +1,12 @@
 @layer components {
   .footer {
-    @apply text-gray-700;
+    color: var(--text-secondary);
     &__content {
-      @apply border-t border-dashed border-stone-300 py-6 flex justify-between;
+      @apply border-t border-dashed py-6 flex justify-between;
+      border-color: var(--border-primary);
+      &__right {
+        @apply flex gap-2 text-xl cursor-pointer;
+      }
     }
     &__github {
         @apply text-xl;

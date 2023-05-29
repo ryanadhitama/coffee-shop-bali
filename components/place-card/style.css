@@ -1,8 +1,9 @@
 @layer components {
   .place-card {
-    @apply flex items-center gap-4 sm:gap-6 mb-3 border border-stone-200 duration-150 cursor-pointer;
+    @apply flex items-center gap-4 sm:gap-6 mb-3 border duration-150 cursor-pointer;
+    border-color: var(--border-secondary);
     &:hover {
-      @apply border-stone-300;
+      border-color: var(--border-primary);
     }
     &__title {
       @apply font-semibold text-base sm:text-lg;

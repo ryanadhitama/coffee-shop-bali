@@ -12,11 +12,11 @@ const About = () => {
       <Box className="container">
         <Box className="about__content">
           <strong className="mb-3 block">Contributor</strong>
-          <ul className="mb-6 list-disc list-inside text-gray-700">
+          <ul className="mb-6 list-disc list-inside about__desc">
             <li>Ryan Adhitama Putra</li>
           </ul>
           <strong className="mb-3 block">How to Contribute</strong>
-          <p className="text-gray-700">Coming soon</p>
+          <p className=" about__desc">Coming soon</p>
         </Box>
       </Box>
     </>

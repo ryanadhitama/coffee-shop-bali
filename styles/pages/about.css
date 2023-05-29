@@ -3,5 +3,8 @@
         &__content {
             @apply py-10;
         }
+        &__desc {
+            color: var(--text-secondary);
+        }
     }
 }

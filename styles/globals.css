@@ -21,6 +21,26 @@ html {
   scroll-behavior: smooth;
 }
 
+html.dark {
+  --bg-color: #121212;
+  --bg-secondary: #202020;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --border-primary: #444444;
+  --border-secondary: #333333;
+}
+
+html {
+  @apply duration-500;
+  --bg-color: #ffffff;
+  --bg-secondary: #e7e5e4;
+  --text-primary: #030712;
+  --text-secondary: #6b7280;
+  --border-primary: #d6d3d1;
+  --border-secondary: #e7e5e4;
+  background-color: var(--bg-color);
+}
+
 .container {
   @apply px-5 xl:max-w-[980px] lg:max-w-[980px];
   @screen md {

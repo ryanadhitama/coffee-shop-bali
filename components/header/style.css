@@ -10,7 +10,8 @@
     &__menu {
         @apply flex gap-4 sm:gap-6;
         a {
-            @apply text-gray-700 sm:text-base text-sm;
+            @apply sm:text-base text-sm;
+            color: var(--text-secondary);
         }
     }
   }
