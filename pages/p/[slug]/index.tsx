@@ -37,6 +37,7 @@ Place.getLayout = function getLayout(page: ReactNode) {
   return <Layout>{page}</Layout>;
 };
 
+
 export async function getStaticPaths() {
   const placeFiles = fs.readdirSync("data/places");
   const paths = placeFiles.map((fileName) => {
@@ -45,7 +46,7 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 }
 
