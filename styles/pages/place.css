@@ -1,0 +1,18 @@
+@layer components {
+    .place {
+        &__content {
+            @apply py-10;
+        }
+        &__desc {
+            color: var(--text-secondary);
+        }
+        
+    }
+    .dark {
+        .place {
+            &__map {
+                filter: grayscale(70%) invert(92%) contrast(83%);
+            }
+        }
+    }
+}
