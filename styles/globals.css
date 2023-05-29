@@ -67,11 +67,13 @@ html {
 
 input.form-control,
 select.form-control {
-  @apply flex-1 py-2 md:py-3 px-2 md:px-4 border outline-none text-sm md:text-base min-h-[40px];
+  @apply rounded-none flex-1 py-2 md:py-3 px-2 md:px-4 border outline-none text-sm md:text-base min-h-[40px];
   background: var(--input-primary);
   border-color: var(--text-secondary);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-appearance: none;
+
 }
