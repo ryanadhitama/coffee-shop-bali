@@ -3,7 +3,7 @@
     @apply py-16 sm:py-20;
     background: var(--bg-secondary);
     &__title {
-      @apply mb-1 text-2xl sm:text-3xl font-medium;
+      @apply mb-1 text-2xl sm:text-3xl lg:text-4xl font-bold;
       color: var(--text-primary);
     }
     &__desc {

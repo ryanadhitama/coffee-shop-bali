@@ -19,6 +19,7 @@ function Place({ frontmatter, content }: any) {
       <Box className="place">
         <Box className="container">
           <Box className="place__content">
+            <h2 className="subtitle mb-4">Location</h2>
             <iframe
               className="place__map"
               src={frontmatter.map}

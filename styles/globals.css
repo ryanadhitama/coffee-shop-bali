@@ -53,3 +53,8 @@ html {
 .site {
   @apply min-h-[calc(100vh-149px)];
 }
+
+.subtitle {
+  @apply text-2xl font-semibold antialiased;
+  color: var(--text-primary)
+}
