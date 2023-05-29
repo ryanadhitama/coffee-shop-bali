@@ -1,20 +1,21 @@
-import { ReactNode } from "react";
-import { Box, Hero, Layout } from "@/components";
+import { Hero, Layout } from "@/components";
+import fs from "fs";
+import matter from "gray-matter";
 import Head from "next/head";
-import { GetStaticPaths } from "next";
+import { ReactNode } from "react";
 interface StaticProps {
   params: {
     slug: string;
   };
 }
 
-function Place() {
+function Place({ frontmatter, content }: any) {
   return (
     <>
       <Head>
-        <title>Tan-Panama</title>
+        <title>{frontmatter.title}</title>
       </Head>
-      <Hero title="Tan-Panama" description="Denpasar" />
+      <Hero title={frontmatter.title} description={frontmatter.location} />
     </>
   );
 }
@@ -23,3 +24,37 @@ export default Place;
 Place.getLayout = function getLayout(page: ReactNode) {
   return <Layout>{page}</Layout>;
 };
+
+export async function getStaticPaths() {
+  const placeFiles = fs.readdirSync("data/places");
+  const paths = placeFiles.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+    return `/p/${slug}`;
+  });
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps(context: any) {
+  const path = `data/places/${context.params.slug}.md`;
+  const isExists = fs.existsSync(path);
+  if (!isExists) {
+    return {
+      redirect: {
+        destination: "/not-found",
+      },
+    };
+  }
+  const fileName = fs.readFileSync(path, "utf-8");
+  const { data: frontmatter, content } = matter(fileName);
+  return {
+    revalidate: 10,
+    props: {
+      frontmatter,
+      content,
+    },
+    notFound: false,
+  };
+}
