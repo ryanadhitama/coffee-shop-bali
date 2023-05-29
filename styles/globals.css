@@ -24,23 +24,29 @@ html {
 
 html.dark {
   --bg-color: #121212;
+  --black: #fff;
+  --white: #000;
   --bg-secondary: #202020;
   --filter-overlay: grayscale(1);
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
   --border-primary: #444444;
   --border-secondary: #333333;
+  --input-primary: #3b3b3b;
 }
 
 html {
   @apply duration-500;
   --bg-color: #ffffff;
+  --black: #000000;
+  --white: #ffffff;
   --bg-secondary: #e7e5e4;
-  --filter-overlay: grayscale(0);;
+  --filter-overlay: grayscale(0);
   --text-primary: #030712;
   --text-secondary: #6b7280;
   --border-primary: #d6d3d1;
   --border-secondary: #e7e5e4;
+  --input-primary: #ffffff;
 }
 
 .container {
@@ -56,5 +62,12 @@ html {
 
 .subtitle {
   @apply text-2xl font-semibold antialiased;
-  color: var(--text-primary)
+  color: var(--text-primary);
+}
+
+input.form-control,
+select.form-control {
+  @apply flex-1 py-2 md:py-3 px-2 md:px-4 border outline-none text-sm md:text-base min-h-[40px];
+  background: var(--input-primary);
+  border-color: var(--text-secondary);
 }

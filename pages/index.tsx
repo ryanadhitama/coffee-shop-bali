@@ -9,7 +9,24 @@ function Home({ places }: any) {
       <Head>
         <title>Coffee Shop Bali</title>
       </Head>
-      <Hero title="Home" description="Listing coffee shop in Bali" />
+      <Hero
+        title="Home"
+        description="Listing coffee shop in Bali"
+        content={
+          <Box className="home__search">
+            <input
+              className="form-control"
+              placeholder="Type keyword"
+              type="text"
+            ></input>
+            <select className="form-control">
+              <option hidden>All</option>
+              <option value="">Denpasar</option>
+            </select>
+            <button>Search</button>
+          </Box>
+        }
+      />
       <Box className="container">
         <Box className="home__content">
           <Box className="home__place-grid">
@@ -29,7 +46,7 @@ Home.getLayout = function getLayout(page: ReactNode) {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }: any) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const places = usePlaces();
   return {
