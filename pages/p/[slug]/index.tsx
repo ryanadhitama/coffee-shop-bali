@@ -51,14 +51,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: any) {
   const path = `data/places/${context.params.slug}.md`;
-  const isExists = fs.existsSync(path);
+  const isExists = await fs.existsSync(path);
   if (!isExists) {
     return {
-      revalidate: 10,
-      notFound: true,
+      redirect: {
+        destination: "/not-found",
+      },
     };
   }
-  const fileName = fs.readFileSync(path, "utf-8");
+  const fileName = await fs.readFileSync(path, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
     revalidate: 10,
