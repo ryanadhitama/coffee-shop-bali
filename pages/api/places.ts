@@ -1,17 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import matter from "gray-matter";
 import fs from "fs";
-
-type Data = {
-  name: string;
-};
+import matter from "gray-matter";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const { title } = req.query;
   const placeFiles = fs.readdirSync("data/places");
   const data = placeFiles.map((fileName) => {
     const slug = fileName.replace(".md", "");
