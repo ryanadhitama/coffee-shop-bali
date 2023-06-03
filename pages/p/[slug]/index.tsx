@@ -1,24 +1,32 @@
-import { Box, Hero, Layout } from "@/components";
+import { Box, Hero, Layout, Meta } from "@/components";
 import fs from "fs";
 import matter from "gray-matter";
 import Head from "next/head";
+import Link from "next/link";
 import { ReactNode } from "react";
-interface StaticProps {
-  params: {
-    slug: string;
-  };
-}
+import { AiOutlineInstagram } from "react-icons/ai";
 
 function Place({ frontmatter, content }: any) {
   return (
     <>
       <Head>
-        <title>{frontmatter.title}</title>
+        <title>{frontmatter.title} - Coffee Shop Bali</title>
+        <Meta
+          title={frontmatter.title}
+          description={frontmatter.location}
+          image={"https://coffee-shop-bali.vercel.app/" + frontmatter.image}
+        />
       </Head>
       <Hero title={frontmatter.title} description={frontmatter.location} />
       <Box className="place">
         <Box className="container">
           <Box className="place__content">
+            <h2 className="subtitle mb-4">Social Media</h2>
+            <Box className="place__social mb-4">
+              <Link href={frontmatter.instagram} target="_blank">
+                <AiOutlineInstagram />
+              </Link>
+            </Box>
             <h2 className="subtitle mb-4">Location</h2>
             <iframe
               className="place__map"
@@ -37,7 +45,6 @@ export default Place;
 Place.getLayout = function getLayout(page: ReactNode) {
   return <Layout>{page}</Layout>;
 };
-
 
 export async function getStaticPaths() {
   const placeFiles = fs.readdirSync("data/places");

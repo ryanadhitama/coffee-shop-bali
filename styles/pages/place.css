@@ -6,6 +6,9 @@
         &__desc {
             color: var(--text-secondary);
         }
+        &__social {
+            @apply text-3xl;
+        }
         
     }
     .dark {
