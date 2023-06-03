@@ -18,6 +18,8 @@ export default function handler(
       const { data: frontmatter } = matter(readFile);
       return {
         slug,
+        location: frontmatter?.location,
+        title: frontmatter?.title,
         ...frontmatter,
       };
     });
@@ -29,12 +31,12 @@ export default function handler(
       let loc = req.query.location;
       if (loc) {
         response = response?.filter(function (el) {
-          return el.location.toLowerCase() == loc.toLowerCase();
+          return el.location.toLowerCase() == loc?.toString().toLowerCase();
         });
       }
       if (name) {
         response = response?.filter(function (el) {
-          return el.title.toLowerCase().includes(name.toLowerCase());
+          return el.title.toLowerCase().includes(name?.toString().toLowerCase());
         });
       }
     }
