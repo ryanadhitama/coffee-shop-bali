@@ -1,11 +1,26 @@
 import Head from "next/head";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Box, Hero, Layout, PlaceCard } from "@/components";
 import { usePlaces } from "@/libs/hooks/places";
 
 function Home() {
-  const places = usePlaces();
-  
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const places = usePlaces({
+    name: name,
+    location: location,
+  });
+
+  const { handleSubmit, register, control, watch, setValue } = useForm({
+    mode: "onBlur",
+  });
+
+  const onSubmit = async (values: any) => {
+    setName(values?.name);
+    setLocation(values?.location);
+  };
+
   return (
     <>
       <Head>
@@ -15,18 +30,23 @@ function Home() {
         title="Home"
         description="Listing coffee shop in Bali"
         content={
-          <Box className="home__search">
-            <input
-              className="form-control"
-              placeholder="Type keyword"
-              type="text"
-            ></input>
-            <select className="form-control">
-              <option hidden>All</option>
-              <option value="">Denpasar</option>
-            </select>
-            <button>Search</button>
-          </Box>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Box className="home__search">
+              <input
+                className="form-control"
+                placeholder="Type keyword"
+                type="text"
+                {...register("name")}
+              ></input>
+
+              <select {...register("location")} className="form-control">
+                <option value=''>All</option>
+                <option value="denpasar">Denpasar</option>
+              </select>
+
+              <button type="submit">Search</button>
+            </Box>
+          </form>
         }
       />
       <Box className="container">
