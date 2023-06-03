@@ -3,7 +3,9 @@ import { ReactNode } from "react";
 import { Box, Hero, Layout, PlaceCard } from "@/components";
 import { usePlaces } from "@/libs/hooks/places";
 
-function Home({ places }: any) {
+function Home() {
+  const places = usePlaces();
+  
   return (
     <>
       <Head>
@@ -30,7 +32,7 @@ function Home({ places }: any) {
       <Box className="container">
         <Box className="home__content">
           <Box className="home__place-grid">
-            {places?.map((place: any) => (
+            {places?.data?.map((place: any) => (
               <PlaceCard data={place} key={place.slug} />
             ))}
           </Box>
@@ -45,13 +47,3 @@ Home.getLayout = function getLayout(page: ReactNode) {
 };
 
 export default Home;
-
-export async function getStaticProps({ params }: any) {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const places = usePlaces();
-  return {
-    props: {
-      places,
-    },
-  };
-}

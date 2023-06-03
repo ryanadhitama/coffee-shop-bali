@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import fs from "fs";
+import matter from "gray-matter";
 import type { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 
@@ -8,15 +9,38 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
   try {
-    const jsonDirectory = path.join(process.cwd(), 'data/places');
+    const jsonDirectory = path.join(process.cwd(), "data/places");
     const placeFiles = fs.readdirSync(jsonDirectory);
-    // const placeDir = fs.readdirSync("_next/data");
-    // const placeFile = fs.readFileSync(`_next/data/${placeDir[0]}/index.json`, "utf-8");
-    // let places = JSON.parse(placeFile);
-    // places = places?.pageProps?.places;
+    let response;
+    const data = placeFiles.map((fileName) => {
+      const slug = fileName.replace(".md", "");
+      const readFile = fs.readFileSync(`data/places/${fileName}`, "utf-8");
+      const { data: frontmatter } = matter(readFile);
+      return {
+        slug,
+        ...frontmatter,
+      };
+    });
 
-    res.status(200).json({ data: placeFiles });
+    response = data;
+
+    if (req) {
+      let name = req.query.name;
+      let loc = req.query.location;
+      if (loc) {
+        response = response?.filter(function (el) {
+          return el.location.toLowerCase() == loc.toLowerCase();
+        });
+      }
+      if (name) {
+        response = response?.filter(function (el) {
+          return el.title.toLowerCase().includes(name.toLowerCase());
+        });
+      }
+    }
+
+    res.status(200).json({ data: response });
   } catch (error: any) {
-    res.status(400).json({ message: error.message})
+    res.status(400).json({ message: error.message });
   }
 }
