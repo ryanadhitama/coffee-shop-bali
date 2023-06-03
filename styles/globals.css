@@ -2,6 +2,7 @@
 @import "../components/header/style.css";
 @import "../components/footer/style.css";
 @import "../components/place-card/style.css";
+@import "../components/skeleton/style.css";
 
 @import "./pages/about.css";
 @import "./pages/home.css";
