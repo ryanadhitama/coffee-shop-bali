@@ -26,7 +26,7 @@ export const usePlaces = (variables: IPlaces) => {
   const { data: res, error } = useSWR(baseUrl, fetcher);
 
   return {
-    loading: !res?.data && error,
+    loading: !error && !res,
     data: res?.data || [],
   };
 };
