@@ -7,16 +7,20 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const placeFiles = fs.readdirSync("data/places");
-  const data = placeFiles.map((fileName) => {
-    const slug = fileName.replace(".md", "");
-    const readFile = fs.readFileSync(`data/places/${fileName}`, "utf-8");
-    const { data: frontmatter } = matter(readFile);
-    return {
-      slug,
-      ...frontmatter,
-    };
-  });
+  try {
+    const placeFiles = fs.readdirSync("data/places");
+    const data = placeFiles.map((fileName) => {
+      const slug = fileName.replace(".md", "");
+      const readFile = fs.readFileSync(`data/places/${fileName}`, "utf-8");
+      const { data: frontmatter } = matter(readFile);
+      return {
+        slug,
+        ...frontmatter,
+      };
+    });
 
-  res.status(200).json({ data: data });
+    res.status(200).json({ data: data });
+  } catch (error: any) {
+    res.status(400).json({ message: error.message})
+  }
 }
