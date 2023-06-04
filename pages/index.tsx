@@ -1,25 +1,26 @@
 import Head from "next/head";
 import { ReactNode, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Box, Hero, Layout, PlaceCard, Skeleton } from "@/components";
+import { TbMoodSad } from "react-icons/tb";
+import {
+  Box,
+  Hero,
+  Layout,
+  PlaceCard,
+  SearchPlace,
+  Skeleton,
+} from "@/components";
 import { usePlaces } from "@/libs/hooks/places";
 
 function Home() {
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
+  const [search, setSearch] = useState({
+    name: "",
+    location: "",
+  });
   const { data: places, loading: placesLoading } = usePlaces({
-    name: name,
-    location: location,
+    name: search.name,
+    location: search.location,
   });
-
-  const { handleSubmit, register } = useForm({
-    mode: "onBlur",
-  });
-
-  const onSubmit = async (values: any) => {
-    setName(values?.name);
-    setLocation(values?.location);
-  };
 
   return (
     <>
@@ -30,23 +31,14 @@ function Home() {
         title="Home"
         description="Listing coffee shop in Bali"
         content={
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Box className="home__search">
-              <input
-                className="form-control"
-                placeholder="Type keyword"
-                type="text"
-                {...register("name")}
-              ></input>
-
-              <select {...register("location")} className="form-control">
-                <option value="">All</option>
-                <option value="denpasar">Denpasar</option>
-              </select>
-
-              <button type="submit">Search</button>
-            </Box>
-          </form>
+          <SearchPlace
+            setSearch={(name, location) =>
+              setSearch({
+                name,
+                location,
+              })
+            }
+          />
         }
       />
       <Box className="container">
@@ -61,6 +53,11 @@ function Home() {
             {places?.map((place: any) => (
               <PlaceCard data={place} key={place.slug} />
             ))}
+            {!placesLoading && places?.length < 1 && (
+              <Box className="home__place-null">
+                <TbMoodSad /> Here is empty. Try to change search request
+              </Box>
+            )}
           </Box>
         </Box>
       </Box>

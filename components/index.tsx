@@ -5,4 +5,5 @@ export { default as Layout } from "./layout";
 export { default as Hero } from "./hero";
 export { default as Meta } from "./meta";
 export { default as PlaceCard } from "./place-card";
+export { default as SearchPlace } from "./search-place";
 export { default as Skeleton } from "./skeleton";

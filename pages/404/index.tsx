@@ -1,4 +1,4 @@
-import { Hero, Layout } from "@/components";
+import { Box, Hero, Layout } from "@/components";
 import Head from "next/head";
 import { ReactNode } from "react";
 
@@ -9,6 +9,9 @@ const NotFound = () => {
         <title>404 Not Found - Coffee Shop Bali</title>
       </Head>
       <Hero title="404 Not Found" description="Listing coffee shop in Bali" />
+      <Box className="container">
+        <Box className="notfound__content"></Box>
+      </Box>
     </>
   );
 };

@@ -10,6 +10,13 @@
       &-skeleton {
         @apply sm:h-[152px] h-[102px];
       }
+      &-null {
+        @apply mt-10 flex flex-col items-center justify-center w-full col-span-2;
+        svg {
+          @apply mb-3 text-6xl;
+        }
+        color: var(--text-secondary)
+      }
     }
     &__search {
       @apply mt-4 flex md:flex-row flex-col gap-2;
