@@ -8,7 +8,7 @@ const About = () => {
       <Head>
         <title>About - Coffee Shop Bali</title>
       </Head>
-      <Hero title="About" description="Listing coffee shop in Bali" />
+      <Hero title="About" description="Listing coffee shop in Bali" back="/" />
       <Box className="container">
         <Box className="about__content">
           <strong className="mb-3 block">Contributor</strong>

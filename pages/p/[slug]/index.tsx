@@ -17,7 +17,11 @@ function Place({ frontmatter, content }: any) {
           image={"https://coffee-shop-bali.vercel.app/" + frontmatter.image}
         />
       </Head>
-      <Hero title={frontmatter.title} description={frontmatter.location} />
+      <Hero
+        title={frontmatter.title}
+        description={frontmatter.location}
+        back="/"
+      />
       <Box className="place">
         <Box className="container">
           <Box className="place__content">

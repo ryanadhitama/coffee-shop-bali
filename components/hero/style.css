@@ -9,5 +9,8 @@
     &__desc {
       color: var(--text-secondary);
     }
+    &__back {
+      @apply mb-3 flex gap-3 items-center;
+    }
   }
 }

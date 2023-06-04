@@ -8,7 +8,11 @@ const NotFound = () => {
       <Head>
         <title>404 Not Found - Coffee Shop Bali</title>
       </Head>
-      <Hero title="404 Not Found" description="Listing coffee shop in Bali" />
+      <Hero
+        title="404 Not Found"
+        description="Listing coffee shop in Bali"
+        back="/"
+      />
       <Box className="container">
         <Box className="notfound__content"></Box>
       </Box>
