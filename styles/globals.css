@@ -62,7 +62,7 @@ html {
 }
 
 .subtitle {
-  @apply text-2xl font-semibold antialiased;
+  @apply text-lg sm:text-2xl font-semibold antialiased;
   color: var(--text-primary);
 }
 

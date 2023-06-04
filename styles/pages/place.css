@@ -1,21 +1,20 @@
 @layer components {
+  .place {
+    &__content {
+      @apply py-5 sm:py-10;
+    }
+    &__desc {
+      color: var(--text-secondary);
+    }
+    &__social {
+      @apply text-3xl;
+    }
+  }
+  .dark {
     .place {
-        &__content {
-            @apply py-10;
-        }
-        &__desc {
-            color: var(--text-secondary);
-        }
-        &__social {
-            @apply text-3xl;
-        }
-        
+      &__map {
+        filter: grayscale(70%) invert(92%) contrast(83%);
+      }
     }
-    .dark {
-        .place {
-            &__map {
-                filter: grayscale(70%) invert(92%) contrast(83%);
-            }
-        }
-    }
+  }
 }

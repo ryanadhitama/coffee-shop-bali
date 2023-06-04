@@ -1,10 +1,10 @@
 @layer components {
-    .about {
-        &__content {
-            @apply py-10;
-        }
-        &__desc {
-            color: var(--text-secondary);
-        }
+  .about {
+    &__content {
+      @apply py-5 sm:py-10;
     }
+    &__desc {
+      color: var(--text-secondary);
+    }
+  }
 }

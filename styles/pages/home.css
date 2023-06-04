@@ -1,7 +1,7 @@
 @layer components {
   .home {
     &__content {
-      @apply py-10;
+      @apply py-5 sm:py-10;
     }
     &__place {
       &-grid {

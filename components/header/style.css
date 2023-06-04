@@ -1,18 +1,18 @@
 @layer components {
   .header {
     @apply py-6;
+    background-color: var(--bg-secondary);
     &__title {
-        @apply font-medium text-lg;
+      @apply font-medium text-lg;
     }
     &__content {
-        @apply flex justify-between;
+      @apply flex justify-between;
     }
     &__menu {
-        @apply flex gap-4 sm:gap-8;
-        a {
-            @apply sm:text-base text-sm;
-            color: var(--text-secondary);
-        }
+      @apply flex gap-4 sm:gap-8;
+      a {
+        @apply sm:text-base text-sm;
+      }
     }
   }
 }
