@@ -9,6 +9,9 @@
     &__social {
       @apply text-3xl;
     }
+    &__share {
+      @apply flex gap-2;
+    }
   }
   .dark {
     .place {

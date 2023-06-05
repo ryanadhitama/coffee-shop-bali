@@ -5,8 +5,17 @@ import Head from "next/head";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
+import {
+  TelegramIcon,
+  TelegramShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton
+} from "react-share";
 
 function Place({ frontmatter, content }: any) {
+  const currentPage = typeof window !== "undefined" && window.location.href;
   return (
     <>
       <Head>
@@ -38,6 +47,21 @@ function Place({ frontmatter, content }: any) {
               width="100%"
               height="450"
             ></iframe>
+            <h2 className="subtitle mt-8 mb-4">Share</h2>
+
+            {currentPage && (
+              <Box className="place__share">
+                <TelegramShareButton url={currentPage}>
+                  <TelegramIcon size={30} round />
+                </TelegramShareButton>
+                <WhatsappShareButton url={currentPage}>
+                  <WhatsappIcon size={30} round />
+                </WhatsappShareButton>
+                <TwitterShareButton url={currentPage}>
+                  <TwitterIcon size={30} round />
+                </TwitterShareButton>
+              </Box>
+            )}
           </Box>
         </Box>
       </Box>
